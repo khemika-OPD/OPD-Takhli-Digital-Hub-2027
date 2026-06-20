@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPD Takhli Digital Hub 2027</title>
     
+    <!-- ระบบสไตล์ Pure CSS ฉบับจัดระยะห่างและสัดส่วนโครงสร้างใหม่ -->
     <style>
         * {
             box-sizing: border-box;
@@ -22,7 +23,7 @@
         
         /* Header Style */
         header {
-            background-color: #0d9488; /* Teal-600 */
+            background-color: #0d9488;
             color: #ffffff;
             padding: 16px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -30,7 +31,7 @@
             z-index: 10;
         }
         .header-container {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -54,51 +55,65 @@
             font-weight: 500;
         }
 
-        /* 🏛️ โครงสร้างแบบหน้าเว็บบริหาร (Sidebar + Main Content) */
+        /* 🏛️ โครงสร้างเลย์เอาต์หน้าเว็บบริหาร (Sidebar + Main Content) */
         .layout-container {
             display: flex;
             flex: 1;
-            max-width: 1400px;
+            max-width: 1500px;
             width: 100%;
             margin: 0 auto;
         }
 
-<!-- ⬅️ แถบเมนูซ้ายมือ: ยุทธศาสตร์องค์กร, Service Profile & QA หน่วยงาน (ฉบับปรับปรุงความสวยงาม) -->
-        <aside class="sidebar">
-            
-            <!-- กล่องที่ 1: พันธกิจ & วิสัยทัศน์ (จัดหัวข้อสั้นกระชับ สวยงาม) -->
-            <div class="sidebar-box">
-                <div class="sidebar-box-title">🎯 วิสัยทัศน์ / พันธกิจ</div>
-                <div class="sidebar-box-desc" style="font-size: 0.85rem; line-height: 1.5;">
-                    • <strong>โรงพยาบาล / ฝ่ายการพยาบาล</strong><br>
-                    • <strong>หน่วยงานผู้ป่วยนอก (OPD)</strong>
-                </div>
-                <!-- อาจารย์นำลิงก์ไฟล์ยุทธศาสตร์มาแปะแทน # ได้เลยค่ะ -->
-                <a href="#" target="_blank" class="sidebar-link-btn">🔍 ตรวจสอบความสอดคล้อง</a>
-            </div>
+        /* ⬅️ แถบเมนูด้านซ้ายมือ (Sidebar) จัดให้ชิดซ้ายสุดและชัดเจน */
+        .sidebar {
+            width: 280px;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 24px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-self: stretch; /* ให้แถบยาวชิดขอบลงมาด้านล่าง */
+        }
+        @media (max-width: 768px) {
+            .layout-container { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 16px; }
+        }
 
-            <!-- กล่องที่ 2: Service Profile -->
-            <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
-                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile หน่วยงาน</div>
-                <!-- อาจารย์นำลิงก์ไฟล์ Service Profile มาแปะแทน # ได้เลยค่ะ -->
-                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #16a34a;">📂 เปิดดู Service Profile</a>
-            </div>
+        /* ส่วนกล่องข้อมูลปุ่มเมนูซ้ายมือ */
+        .sidebar-box {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 14px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .sidebar-box-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sidebar-link-btn {
+            display: block;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+        .sidebar-link-btn:hover { opacity: 0.9; }
 
-            <!-- กล่องที่ 3: QA ของหน่วยงาน (ปุ่มใหม่สั้นๆ ต่อท้ายตามที่อาจารย์ต้องการค๊าฟ) -->
-            <div class="sidebar-box" style="background-color: #f8fafc; border-color: #cbd5e1;">
-                <div class="sidebar-box-title" style="color: #334155;">💎 QA ของหน่วยงาน</div>
-                <!-- อาจารย์นำลิงก์ระบบงานประกันคุณภาพ (QA) มาแปะแทน # ได้เลยค่ะ -->
-                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #475569;">✨ เปิดระบบงาน QA</a>
-            </div>
-
-        </aside>
-        
-        
-
-        /* 📍 ส่วนเนื้อหาหลักด้านขวา (9 ปุ่มหลักเดิม) */
+        /* 📍 ส่วนเนื้อหาหลักด้านขวา (เพิ่ม Margin-Left เพื่อเว้นระยะห่างจากแถบซ้ายอย่างชัดเจน) */
         .main-content {
             flex: 1;
-            padding: 24px;
+            padding: 24px 24px 24px 40px; /* เพิ่มระยะห่างด้านซ้ายเป็น 40px เพื่อแยกแผง 9 ปุ่มออกจากแถบเมนูซ้าย */
         }
         .page-title {
             margin-bottom: 24px;
@@ -183,6 +198,7 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="header-title">
@@ -193,28 +209,33 @@
         </div>
     </header>
 
+    <!-- 🏛️ โครงสร้างภาพรวมระบบยุทธศาสตร์และการจัดการ -->
     <div class="layout-container">
         
+        <!-- ⬅️ แถบเมนูซ้ายมือ ชิดซ้ายสุดและแบ่งปุ่มสั้นชัดเจน -->
         <aside class="sidebar">
             
-            <div class="sidebar-box">
-                <div class="sidebar-box-title">🎯 วิสัยทัศน์ พันธกิจ ระดับโรงพยาบาล/ฝ่ายการพยาบาล/หน่วยงาน</div>
-                <div class="sidebar-box-desc">
-                  
-                </div>
-                <a href="#" target="_blank" class="sidebar-link-btn">🔍 ตรวจสอบความสอดคล้อง</a>
+            <!-- ปุ่มที่ 1: วิสัยทัศน์ พันธกิจ องค์กร -->
+            <div class="sidebar-box" style="background-color: #f0fdfa; border-color: #ccfbf1;">
+                <div class="sidebar-box-title" style="color: #0f766e;">🎯 วิสัยทัศน์ พันธกิจ องค์กร</div>
+                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #0d9488;">🔍 ตรวจสอบความสอดคล้อง</a>
             </div>
 
+            <!-- ปุ่มที่ 2: Service Profile -->
             <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
-                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile หน่วยงาน</div>
-                <div class="sidebar-box-desc">
-                 
-                </div>
+                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile</div>
                 <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #16a34a;">📂 เปิดดู Service Profile</a>
+            </div>
+
+            <!-- ปุ่มที่ 3: QA หน่วยงาน -->
+            <div class="sidebar-box" style="background-color: #f8fafc; border-color: #cbd5e1;">
+                <div class="sidebar-box-title" style="color: #334155;">💎 QA หน่วยงาน</div>
+                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #475569;">✨ เปิดระบบงาน QA</a>
             </div>
 
         </aside>
 
+        <!-- 📍 ส่วนเนื้อหาหลักด้านขวา (9 ปุ่มบริหารจัดการตึก) -->
         <main class="main-content">
             <div class="page-title">
                 <h2>ศูนย์รวมข้อมูลและนวัตกรรมการนำระบบสุขภาพอัจฉริยะ</h2>
@@ -223,6 +244,7 @@
 
             <div class="grid-container">
                 
+                <!-- ปุ่มที่ 1: ตัวชี้วัด -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
@@ -237,6 +259,7 @@
                     <div class="card-footer"><a href="indicators.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 2: ข้อมูลบุคลากร/ประชุมอบรม -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80');">
@@ -251,6 +274,7 @@
                     <div class="card-footer"><a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 3: ข้อมูลวิชาการ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
@@ -265,6 +289,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 4: ความพึงพอใจ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');">
@@ -279,6 +304,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 5: ระบบรายงานความเสี่ยงและข้อร้องเรียน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80');">
@@ -293,6 +319,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 6: สถิติรายงานของหน่วยงาน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
@@ -307,6 +334,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 7: ตารางเวรและระบบจองวันลา -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
@@ -321,6 +349,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 8: บันทึกเวลาปฏิบัติงาน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
@@ -335,6 +364,7 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
+                <!-- ปุ่มที่ 9: WI และระเบียบปฏิบัติ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
@@ -353,6 +383,7 @@
         </main>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
     </footer>
