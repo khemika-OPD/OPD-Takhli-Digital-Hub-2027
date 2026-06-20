@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPD Takhli Digital Hub 2027</title>
     
-    <!-- ระบบสไตล์ภายในไฟล์ (Pure CSS) ป้องกันการโดน Firewall โรงพยาบาลบล็อก -->
     <style>
         * {
             box-sizing: border-box;
@@ -109,9 +108,8 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
-        /* ขนาดรูปภาพครึ่งหนึ่งของการ์ด (h-44 สัดส่วน 50:50) */
         .card-image-header {
-            height: 176px; /* h-44 */
+            height: 176px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -123,7 +121,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45); /* แผ่นกรองแสงเพิ่มความชัดให้ไอคอน */
+            background: rgba(0, 0, 0, 0.45);
             z-index: 1;
         }
         .card-emoji-icon {
@@ -190,7 +188,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="header-container">
             <div class="header-title">
@@ -203,51 +200,46 @@
         </div>
     </header>
 
-    <!-- Main Dashboard -->
     <main>
         <div class="page-title">
             <h2>ศูนย์รวมข้อมูลและรายงานภายในหน่วยงาน</h2>
             <p>คลิกเข้าสู่ระบบบริหารจัดการ ฐานข้อมูล และนวัตกรรมเพื่อการนำระบบสุขภาพอัจฉริยะ</p>
         </div>
 
-        <!-- Grid Layout -->
         <div class="grid-container">
             
-            <!-- Card 1: ตัวชี้วัด -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
                         <span class="card-emoji-icon">📈</span>
                     </div>
                     <div class="card-body">
-                        <span class="card-tag" style="color: #059669;">Quality</span>
+                        <span class="card-tag" style="color: #059669;">Quality & NCD</span>
                         <div class="card-title">1. ตัวชี้วัด</div>
-                        <p class="card-desc">สรุปผล KPIs รายเดือน/รายปี และแดชบอร์ดความก้าวหน้างานพัฒนาคุณภาพ OPD</p>
+                        <p class="card-desc">ศูนย์รวมข้อมูลประเมินผล 6 มิติคุณภาพพยาบาลผู้ป่วยนอก และอัตราการควบคุมโรคคลินิก NCD ประจำงวดเวลา พ.ศ.</p>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
+                    <a href="indicators.html" class="card-link">เข้าสู่ระบบ ➔</a>
                 </div>
             </div>
 
-            <!-- Card 2: การประชุมอบรม (ปรับเป็นภาพกลุ่มคนกำลังร่วมประชุมสัมมนา/อบรม เลี่ยงหน้าจอ Notebook แล้วครับ) -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80');">
                         <span class="card-emoji-icon">👥</span>
                     </div>
                     <div class="card-body">
-                        <span class="card-tag" style="color: #7c3aed;">Education</span>
-                        <div class="card-title">2. การประชุมอบรม</div>
-                        <p class="card-desc">รายงานการประชุมคณะกรรมการ/หน่วยงาน และประวัติบันทึกการเข้าอบรมฟื้นฟูวิชาการ</p>
+                        <span class="card-tag" style="color: #7c3aed;">HR & Education</span>
+                        <div class="card-title">2. ข้อมูลบุคลากร/ประชุมอบรม</div>
+                        <p class="card-desc">ระบบบันทึกประวัติพยาบาลวิชาชีพ เลขที่ใบอนุญาตประกอบวิชาชีพ (คุ้มครองข้อมูลส่วนบุคคล PDPA) และสถิติชั่วโมงการเข้าประชุมอบรมประจำปี</p>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
+                    <a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a>
                 </div>
             </div>
 
-            <!-- Card 3: ข้อมูลวิชาการ -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
@@ -264,7 +256,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: ความพึงพอใจ -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');">
@@ -281,7 +272,6 @@
                 </div>
             </div>
 
-            <!-- Card 5: ระบบรายงานความเสี่ยงและข้อร้องเรียน -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80');">
@@ -298,7 +288,6 @@
                 </div>
             </div>
 
-            <!-- Card 6: สถิติรายงานของหน่วยงาน -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
@@ -315,7 +304,6 @@
                 </div>
             </div>
 
-            <!-- Card 7: ตารางเวรและระบบจองวันลา -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
@@ -332,7 +320,6 @@
                 </div>
             </div>
 
-            <!-- Card 8: บันทึกเวลาปฏิบัติงาน -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
@@ -349,7 +336,6 @@
                 </div>
             </div>
 
-            <!-- Card 9: WI และระเบียบปฏิบัติของหน่วยงาน -->
             <div class="card">
                 <div>
                     <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
@@ -369,7 +355,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
     </footer>
