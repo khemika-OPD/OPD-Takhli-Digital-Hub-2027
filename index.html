@@ -1,106 +1,8 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPD Takhli Digital Hub 2027</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .card-image-header {
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .card-image-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45); /* แผ่นกรองแสงเพิ่มความชัดให้ไอคอน */
-            z-index: 1;
-        }
-        .card-icon {
-            position: relative;
-            z-index: 2;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
-
-    <header class="bg-teal-600 text-white shadow-md p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <i class="fa-solid fa-laptop-medical text-2xl"></i>
-                <div>
-                    <h1 class="text-xl font-bold tracking-wide">OPD Takhli Digital Hub 2027</h1>
-                    <p class="text-xs text-teal-100">Designed & Developed by Khemika Pongsri</p>
-                </div>
-            </div>
-            <div class="text-sm bg-teal-700 px-3 py-1 rounded-full font-medium">
-                งานผู้ป่วยนอก โรงพยาบาลตาคลี
-            </div>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-4 py-8 flex-grow">
-        <div class="mb-6 border-b border-gray-200 pb-4">
-            <h2 class="text-2xl font-bold text-gray-800">ศูนย์รวมข้อมูลและรายงานภายในหน่วยงาน</h2>
-            <p class="text-gray-600 text-sm mt-1">คลิกเข้าสู่ระบบบริหารจัดการ ฐานข้อมูล และนวัตกรรมเพื่อการนำระบบสุขภาพอัจฉริยะ</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
+<!-- Card 4: ความพึงพอใจ -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-chart-line card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Quality</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">1. ตัวชี้วัด</h3>
-                        <p class="text-gray-600 text-sm mt-1">สรุปผล KPIs รายเดือน/รายปี และแดชบอร์ดความก้าวหน้างานพัฒนาคุณภาพ OPD</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-users-gear card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-purple-600 uppercase tracking-wider">Education</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">2. การประชุมอบรม</h3>
-                        <p class="text-gray-600 text-sm mt-1">รายงานการประชุมคณะกรรมการ/หน่วยงาน และประวัติบันทึกการเข้าอบรมฟื้นฟูวิชาการ</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-graduation-cap card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Academic</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">3. ข้อมูลวิชาการ</h3>
-                        <p class="text-gray-600 text-sm mt-1">คลังความรู้งานวิจัย นวัตกรรมทางการพยาบาล และแนวทางการดูแลผู้ป่วยตามหลักฐานเชิงประจักษ์</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1590105577767-e21a1067899f?auto=format&fit=crop&w=500&q=80');">
+                    <!-- เปลี่ยนลิงก์รูปภาพความพึงพอใจ/รอยยิ้มที่เสถียรขึ้น -->
+                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80');">
                         <i class="fa-regular fa-face-smile-beam card-icon"></i>
                     </div>
                     <div class="p-4">
@@ -114,9 +16,11 @@
                 </div>
             </div>
 
+            <!-- Card 5: ระบบรายงานความเสี่ยงและข้อร้องเรียน -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1584515901367-f1c27b545534?auto=format&fit=crop&w=500&q=80');">
+                    <!-- แก้ไขลิงก์รูปภาพความเสี่ยง/ความปลอดภัยทางการแพทย์ใหม่ ให้แสดงผลแน่นอน -->
+                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=500&q=80');">
                         <i class="fa-solid fa-shield-medical card-icon"></i>
                     </div>
                     <div class="p-4">
@@ -129,77 +33,3 @@
                     <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-chart-pie card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-amber-600 uppercase tracking-wider">Data Center</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">6. สถิติรายงานของหน่วยงาน</h3>
-                        <p class="text-gray-600 text-sm mt-1">ข้อมูลจำนวนผู้ป่วยรายวัน อัตราความแออัด ระยะเวลารอคอย และข้อมูลสถิติบริการ</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-calendar-days card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-cyan-600 uppercase tracking-wider">Workforce</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">7. ตารางเวรและระบบจองวันลา</h3>
-                        <p class="text-gray-600 text-sm mt-1">ตรวจสอบตารางเวรปฏิบัติงานรายเดือน ส่งคำขอสลับเวร และยื่นใบลาล่วงหน้าออนไลน์</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-clock card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Time Attendance</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">8. บันทึกเวลาปฏิบัติงาน</h3>
-                        <p class="text-gray-600 text-sm mt-1">ระบบลงเวลาเข้า-ออกปฏิบัติงานจริง และตรวจสอบสรุปชั่วโมงการทำงานรายบุคคล</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
-                <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
-                        <i class="fa-solid fa-book-medical card-icon"></i>
-                    </div>
-                    <div class="p-4">
-                        <span class="text-xs font-semibold text-teal-700 uppercase tracking-wider">Standards</span>
-                        <h3 class="text-lg font-bold text-gray-800 mt-1">9. WI และระเบียบปฏิบัติ</h3>
-                        <p class="text-gray-600 text-sm mt-1">คู่มือวิธีปฏิบัติงาน (WI) ขั้นตอนการพยาบาล และระเบียบปฏิบัติ (SOP) ประจำหน่วยงาน</p>
-                    </div>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                    <a href="#" class="text-teal-600 hover:text-teal-800 text-sm font-medium flex items-center">เข้าสู่ระบบ <i class="fa-solid fa-arrow-right ml-1"></i></a>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-400 text-center py-4 text-sm border-t border-gray-700">
-        <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
-    </footer>
-
-</body>
-</html>
