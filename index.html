@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPD Takhli Digital Hub 2027</title>
-    <!-- ใช้ Tailwind CSS สำหรับจัดหน้า Dashboard -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -28,7 +27,6 @@
 </head>
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
 
-    <!-- Header -->
     <header class="bg-teal-600 text-white shadow-md p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -44,20 +42,16 @@
         </div>
     </header>
 
-    <!-- Main Dashboard -->
     <main class="container mx-auto px-4 py-8 flex-grow">
         <div class="mb-6 border-b border-gray-200 pb-4">
             <h2 class="text-2xl font-bold text-gray-800">ศูนย์รวมข้อมูลและรายงานภายในหน่วยงาน</h2>
             <p class="text-gray-600 text-sm mt-1">คลิกเข้าสู่ระบบบริหารจัดการ ฐานข้อมูล และนวัตกรรมเพื่อการนำระบบสุขภาพอัจฉริยะ</p>
         </div>
 
-        <!-- Grid Layout ระบบ 3 คอลัมน์ (3x3 = 9 เมนูพอดี) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Card 1: ตัวชี้วัด -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <!-- ปรับความสูงเป็น h-44 เพื่อเพิ่มขนาดรูปเป็นครึ่งหนึ่งของการ์ด -->
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
                         <i class="fa-solid fa-chart-line card-icon"></i>
                     </div>
@@ -72,7 +66,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: การประชุมอบรม -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80');">
@@ -89,7 +82,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: ข้อมูลวิชาการ -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
@@ -106,10 +98,9 @@
                 </div>
             </div>
 
-            <!-- Card 4: ความพึงพอใจ -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=500&q=80');">
+                    <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1590105577767-e21a1067899f?auto=format&fit=crop&w=500&q=80');">
                         <i class="fa-regular fa-face-smile-beam card-icon"></i>
                     </div>
                     <div class="p-4">
@@ -123,7 +114,6 @@
                 </div>
             </div>
 
-            <!-- Card 5: ระบบรายงานความเสี่ยงและข้อร้องเรียน -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1584515901367-f1c27b545534?auto=format&fit=crop&w=500&q=80');">
@@ -140,7 +130,6 @@
                 </div>
             </div>
 
-            <!-- Card 6: สถิติรายงานของหน่วยงาน -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
@@ -157,7 +146,6 @@
                 </div>
             </div>
 
-            <!-- Card 7: ตารางเวรและระบบจองวันลา -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
@@ -174,7 +162,6 @@
                 </div>
             </div>
 
-            <!-- Card 8: บันทึกเวลาปฏิบัติงาน -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
@@ -191,7 +178,6 @@
                 </div>
             </div>
 
-            <!-- Card 9: WI และระเบียบปฏิบัติของหน่วยงาน -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-200 flex flex-col justify-between">
                 <div>
                     <div class="card-image-header h-44 flex items-center justify-center text-white text-5xl" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
@@ -211,7 +197,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 text-center py-4 text-sm border-t border-gray-700">
         <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
     </footer>
