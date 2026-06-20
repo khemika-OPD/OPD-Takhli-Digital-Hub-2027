@@ -25,10 +25,12 @@
             background-color: #0d9488; /* Teal-600 */
             color: #ffffff;
             padding: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -38,7 +40,6 @@
         .header-title h1 {
             font-size: 1.25rem;
             font-weight: bold;
-            letter-spacing: 0.05em;
         }
         .header-title p {
             font-size: 0.75rem;
@@ -51,16 +52,72 @@
             padding: 4px 12px;
             border-radius: 9999px;
             font-weight: 500;
-            margin-top: 5px;
         }
 
-        /* Main Context */
-        main {
-            max-width: 1200px;
+        /* 🏛️ โครงสร้างแบบหน้าเว็บบริหาร (Sidebar + Main Content) */
+        .layout-container {
+            display: flex;
+            flex: 1;
+            max-width: 1400px;
             width: 100%;
             margin: 0 auto;
-            padding: 32px 16px;
-            flex-grow: 1;
+        }
+
+        /* ⬅️ แถบเมนูด้านซ้ายมือ (Sidebar) สำหรับข้อมูลยุทธศาสตร์หน้างาน */
+        .sidebar {
+            width: 280px;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .layout-container { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; }
+        }
+
+        /* ส่วนกล่องข้อมูลนโยบาย / ยุทธศาสตร์ */
+        .sidebar-box {
+            background-color: #f0fdfa;
+            border: 1px solid #ccfbf1;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        .sidebar-box-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #0f766e;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sidebar-box-desc {
+            font-size: 0.8rem;
+            color: #374151;
+            line-height: 1.4;
+        }
+        .sidebar-link-btn {
+            display: block;
+            text-align: center;
+            background-color: #0d9488;
+            color: white;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .sidebar-link-btn:hover { background-color: #0f766e; }
+
+        /* 📍 ส่วนเนื้อหาหลักด้านขวา (9 ปุ่มหลักเดิม) */
+        .main-content {
+            flex: 1;
+            padding: 24px;
         }
         .page-title {
             margin-bottom: 24px;
@@ -68,26 +125,26 @@
             padding-bottom: 16px;
         }
         .page-title h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #1f2937;
         }
         .page-title p {
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             color: #4b5563;
             margin-top: 4px;
         }
 
-        /* Grid Layout (3 คอลัมน์แบบ Responsive) */
+        /* Grid Layout 3 คอลัมน์สำหรับ 9 ปุ่ม */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 24px;
+            gap: 20px;
         }
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             .grid-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 1200px) {
             .grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         }
 
@@ -96,20 +153,19 @@
             background-color: #ffffff;
             border-radius: 12px;
             border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-
         .card-image-header {
-            height: 176px;
+            height: 140px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -121,58 +177,16 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
-        .card-emoji-icon {
-            font-size: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Card Body Content */
-        .card-body {
-            padding: 16px;
-            flex-grow: 1;
-        }
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .card-title {
-            font-size: 1.125rem;
-            font-weight: bold;
-            color: #1f2937;
-            margin-top: 4px;
-        }
-        .card-desc {
-            font-size: 0.875rem;
-            color: #4b5563;
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-
-        /* Card Footer Link */
-        .card-footer {
-            padding: 16px;
-            background-color: #f9fafb;
-            border-top: 1px solid #f3f4f6;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .card-link {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #0d9488;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        .card-link:hover {
-            color: #0f766e;
-        }
+        .card-emoji-icon { font-size: 2.5rem; position: relative; z-index: 2; }
+        .card-body { padding: 14px; flex-grow: 1; }
+        .card-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+        .card-title { font-size: 1.05rem; font-weight: bold; color: #1f2937; margin-top: 2px; }
+        .card-desc { font-size: 0.85rem; color: #4b5563; margin-top: 6px; line-height: 1.4; }
+        .card-footer { padding: 12px 14px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
+        .card-link { font-size: 0.85rem; font-weight: 500; color: #0d9488; text-decoration: none; }
 
         /* Footer Style */
         footer {
@@ -180,7 +194,7 @@
             color: #9ca3af;
             text-align: center;
             padding: 16px;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             border-top: 1px solid #374151;
             margin-top: auto;
         }
@@ -194,166 +208,169 @@
                 <h1>OPD Takhli Digital Hub 2027</h1>
                 <p>Designed & Developed by Khemika Pongsri</p>
             </div>
-            <div class="header-badge">
-                งานผู้ป่วยนอก โรงพยาบาลตาคลี
-            </div>
+            <div class="header-badge">งานผู้ป่วยนอก โรงพยาบาลตาคลี</div>
         </div>
     </header>
 
-    <main>
-        <div class="page-title">
-            <h2>ศูนย์รวมข้อมูลและรายงานภายในหน่วยงาน</h2>
-            <p>คลิกเข้าสู่ระบบบริหารจัดการ ฐานข้อมูล และนวัตกรรมเพื่อการนำระบบสุขภาพอัจฉริยะ</p>
-        </div>
-
-        <div class="grid-container">
+    <div class="layout-container">
+        
+        <aside class="sidebar">
             
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">📈</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #059669;">Quality & NCD</span>
-                        <div class="card-title">1. ตัวชี้วัด</div>
-                        <p class="card-desc">ศูนย์รวมข้อมูลประเมินผล 6 มิติคุณภาพพยาบาลผู้ป่วยนอก และอัตราการควบคุมโรคคลินิก NCD ประจำงวดเวลา พ.ศ.</p>
-                    </div>
+            <div class="sidebar-box">
+                <div class="sidebar-box-title">🎯 วิสัยทัศน์และพันธกิจ</div>
+                <div class="sidebar-box-desc">
+                    <strong>วิสัยทัศน์ตึก:</strong> มุ่งนำระบบดิจิทัลสุขภาพอัจฉริยะ ยกระดับการคุมโรค NCD และความปลอดภัยพยาบาลผู้ป่วยนอกอย่างเท่าเทียม
                 </div>
-                <div class="card-footer">
-                    <a href="indicators.html" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
+                <a href="#" target="_blank" class="sidebar-link-btn">🔍 ตรวจสอบความสอดคล้อง</a>
             </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">👥</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #7c3aed;">HR & Education</span>
-                        <div class="card-title">2. ข้อมูลบุคลากร/ประชุมอบรม</div>
-                        <p class="card-desc">ระบบบันทึกประวัติบุคลากรในหน่วยงาน เลขที่ใบอนุญาตประกอบวิชาชีพ (คุ้มครองข้อมูลส่วนบุคคล PDPA) และสถิติชั่วโมงการเข้าประชุมอบรมประจำปี</p>
-                    </div>
+            <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
+                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile หน่วยงาน</div>
+                <div class="sidebar-box-desc">
+                    ข้อมูลบริบท ขอบเขตบริการพยาบาลผู้ป่วยนอก ศักยภาพการรองรับเคส และสถิติกลุ่มโรคสำคัญประจำแผนก OPD โรงพยาบาลตาคลี
                 </div>
-                <div class="card-footer">
-                    <a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
+                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #16a34a;">📂 เปิดดู Service Profile</a>
             </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">🎓</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #4f46e5;">Academic</span>
-                        <div class="card-title">3. ข้อมูลวิชาการ</div>
-                        <p class="card-desc">คลังความรู้งานวิจัย นวัตกรรมทางการพยาบาล และแนวทางการดูแลผู้ป่วยตามหลักฐานเชิงประจักษ์</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-title">
+                <h2>ศูนย์รวมข้อมูลและนวัตกรรมการนำระบบสุขภาพอัจฉริยะ</h2>
+                <p>ระบบบันทึก ตรวจเช็คเกณฑ์ชี้วัด และการจัดการทรัพยากรทางการพยาบาลภายในตึกผู้ป่วยนอก</p>
             </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">😊</span>
+            <div class="grid-container">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">📈</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #059669;">Quality & NCD</span>
+                            <div class="card-title">1. ตัวชี้วัด</div>
+                            <p class="card-desc">ศูนย์รวมข้อมูลประเมินผล 6 มิติคุณภาพพยาบาลผู้ป่วยนอก และอัตราการควบคุมโรคคลินิก NCD ประจำงวดเวลา พ.ศ.</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #e11d48;">Service Experience</span>
-                        <div class="card-title">4. ความพึงพอใจ</div>
-                        <p class="card-desc">สรุปผลการสำรวจความพึงพอใจต่อบริการของผู้รับบริการและบุคลากรภายในหน่วยงาน</p>
-                    </div>
+                    <div class="card-footer"><a href="indicators.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">🛡️</span>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">👥</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #7c3aed;">HR & Education</span>
+                            <div class="card-title">2. ข้อมูลบุคลากร/ประชุมอบรม</div>
+                            <p class="card-desc">ระบบบันทึกประวัติพยาบาลวิชาชีพ เลขที่ใบอนุญาตประกอบวิชาชีพ (คุ้มครองข้อมูลส่วนบุคคล PDPA) และสถิติจำนวนชั่วโมงการอบรมฟื้นฟูทักษะประจำปี</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #dc2626;">Risk & Complaint</span>
-                        <div class="card-title">5. ระบบรายงานความเสี่ยงและข้อร้องเรียน</div>
-                        <p class="card-desc">บันทึกและติดตามอุบัติการณ์ความเสี่ยง รวมถึงการจัดการข้อร้องเรียนต่างๆ ใน OPD</p>
-                    </div>
+                    <div class="card-footer"><a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">📊</span>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">🎓</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #4f46e5;">Academic</span>
+                            <div class="card-title">3. ข้อมูลวิชาการ</div>
+                            <p class="card-desc">คลังความรู้งานวิจัย นวัตกรรมทางการพยาบาล และแนวทางการดูแลผู้ป่วยตามหลักฐานเชิงประจักษ์</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #d97706;">Data Center</span>
-                        <div class="card-title">6. สถิติรายงานของหน่วยงาน</div>
-                        <p class="card-desc">ข้อมูลจำนวนผู้ป่วยรายวัน อัตราความแออัด ระยะเวลารอคอย และข้อมูลสถิติบริการ</p>
-                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">📅</span>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">😊</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #e11d48;">Service Experience</span>
+                            <div class="card-title">4. ความพึงพอใจ</div>
+                            <p class="card-desc">สรุปผลการสำรวจความพึงพอใจต่อบริการของผู้รับบริการและบุคลากรภายในหน่วยงาน</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #0891b2;">Workforce</span>
-                        <div class="card-title">7. ตารางเวรและระบบจองวันลา</div>
-                        <p class="card-desc">ตรวจสอบตารางเวรปฏิบัติงานรายเดือน ส่งคำขอสลับเวร และยื่นใบลาล่วงหน้าออนไลน์</p>
-                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">⏱️</span>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">🛡️</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #dc2626;">Risk & Complaint</span>
+                            <div class="card-title">5. ระบบรายงานความเสี่ยงและข้อร้องเรียน</div>
+                            <p class="card-desc">บันทึกและติดตามอุบัติการณ์ความเสี่ยง รวมถึงการจัดการข้อร้องเรียนต่างๆ ใน OPD</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #2563eb;">Time Attendance</span>
-                        <div class="card-title">8. บันทึกเวลาปฏิบัติงาน</div>
-                        <p class="card-desc">ระบบลงเวลาเข้า-ออกปฏิบัติงานจริง และตรวจสอบสรุปชั่วโมงการทำงานรายบุคคล</p>
-                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div>
-                    <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
-                        <span class="card-emoji-icon">📜</span>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">📊</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #d97706;">Data Center</span>
+                            <div class="card-title">6. สถิติรายงานของหน่วยงาน</div>
+                            <p class="card-desc">ข้อมูลจำนวนผู้ป่วยรายวัน อัตราความแออัด ระยะเวลารอคอย และข้อมูลสถิติบริการ</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <span class="card-tag" style="color: #0f766e;">Standards</span>
-                        <div class="card-title">9. WI และระเบียบปฏิบัติ</div>
-                        <p class="card-desc">คู่มือวิธีปฏิบัติงาน (WI) ขั้นตอนการพยาบาล และระเบียบปฏิบัติ (SOP) ประจำหน่วยงาน</p>
-                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">เข้าสู่ระบบ ➔</a>
-                </div>
-            </div>
 
-        </div>
-    </main>
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">📅</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #0891b2;">Workforce</span>
+                            <div class="card-title">7. ตารางเวรและระบบจองวันลา</div>
+                            <p class="card-desc">ตรวจสอบตารางเวรปฏิบัติงานรายเดือน ส่งคำขอสลับเวร และยื่นใบลาล่วงหน้าออนไลน์</p>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">⏱️</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #2563eb;">Time Attendance</span>
+                            <div class="card-title">8. บันทึกเวลาปฏิบัติงาน</div>
+                            <p class="card-desc">ระบบลงเวลาเข้า-ออกปฏิบัติงานจริง และตรวจสอบสรุปชั่วโมงการทำงานรายบุคคล</p>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
+                            <span class="card-emoji-icon">📜</span>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-tag" style="color: #0f766e;">Standards</span>
+                            <div class="card-title">9. WI และระเบียบปฏิบัติ</div>
+                            <p class="card-desc">คู่มือวิธีปฏิบัติงาน (WI) ขั้นตอนการพยาบาล และระเบียบปฏิบัติ (SOP) ประจำหน่วยงาน</p>
+                        </div>
+                    </div>
+                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
+                </div>
+
+            </div>
+        </main>
+    </div>
 
     <footer>
         <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
