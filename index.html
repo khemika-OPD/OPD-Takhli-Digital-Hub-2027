@@ -63,56 +63,37 @@
             margin: 0 auto;
         }
 
-        /* ⬅️ แถบเมนูด้านซ้ายมือ (Sidebar) สำหรับข้อมูลยุทธศาสตร์หน้างาน */
-        .sidebar {
-            width: 280px;
-            background-color: #ffffff;
-            border-right: 1px solid #e5e7eb;
-            padding: 24px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        @media (max-width: 768px) {
-            .layout-container { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; }
-        }
+<!-- ⬅️ แถบเมนูซ้ายมือ: ยุทธศาสตร์องค์กร, Service Profile & QA หน่วยงาน (ฉบับปรับปรุงความสวยงาม) -->
+        <aside class="sidebar">
+            
+            <!-- กล่องที่ 1: พันธกิจ & วิสัยทัศน์ (จัดหัวข้อสั้นกระชับ สวยงาม) -->
+            <div class="sidebar-box">
+                <div class="sidebar-box-title">🎯 วิสัยทัศน์ / พันธกิจ</div>
+                <div class="sidebar-box-desc" style="font-size: 0.85rem; line-height: 1.5;">
+                    • <strong>โรงพยาบาล / ฝ่ายการพยาบาล</strong><br>
+                    • <strong>หน่วยงานผู้ป่วยนอก (OPD)</strong>
+                </div>
+                <!-- อาจารย์นำลิงก์ไฟล์ยุทธศาสตร์มาแปะแทน # ได้เลยค่ะ -->
+                <a href="#" target="_blank" class="sidebar-link-btn">🔍 ตรวจสอบความสอดคล้อง</a>
+            </div>
 
-        /* ส่วนกล่องข้อมูลนโยบาย / ยุทธศาสตร์ */
-        .sidebar-box {
-            background-color: #f0fdfa;
-            border: 1px solid #ccfbf1;
-            border-radius: 8px;
-            padding: 14px;
-        }
-        .sidebar-box-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #0f766e;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .sidebar-box-desc {
-            font-size: 0.8rem;
-            color: #374151;
-            line-height: 1.4;
-        }
-        .sidebar-link-btn {
-            display: block;
-            text-align: center;
-            background-color: #0d9488;
-            color: white;
-            text-decoration: none;
-            padding: 8px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 8px;
-            transition: background 0.2s;
-        }
-        .sidebar-link-btn:hover { background-color: #0f766e; }
+            <!-- กล่องที่ 2: Service Profile -->
+            <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
+                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile หน่วยงาน</div>
+                <!-- อาจารย์นำลิงก์ไฟล์ Service Profile มาแปะแทน # ได้เลยค่ะ -->
+                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #16a34a;">📂 เปิดดู Service Profile</a>
+            </div>
+
+            <!-- กล่องที่ 3: QA ของหน่วยงาน (ปุ่มใหม่สั้นๆ ต่อท้ายตามที่อาจารย์ต้องการค๊าฟ) -->
+            <div class="sidebar-box" style="background-color: #f8fafc; border-color: #cbd5e1;">
+                <div class="sidebar-box-title" style="color: #334155;">💎 QA ของหน่วยงาน</div>
+                <!-- อาจารย์นำลิงก์ระบบงานประกันคุณภาพ (QA) มาแปะแทน # ได้เลยค่ะ -->
+                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #475569;">✨ เปิดระบบงาน QA</a>
+            </div>
+
+        </aside>
+        
+        
 
         /* 📍 ส่วนเนื้อหาหลักด้านขวา (9 ปุ่มหลักเดิม) */
         .main-content {
