@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OPD Takhli Digital Hub 2027</title>
     
-    <!-- ระบบสไตล์ Pure CSS ฉบับจัดระยะห่างและสัดส่วนโครงสร้างใหม่ -->
     <style>
         * {
             box-sizing: border-box;
@@ -17,132 +16,118 @@
             background-color: #f3f4f6;
             color: #1f2937;
             display: flex;
+            min-height: 100vh;
+        }
+
+        /* 🏛️ 1. แถบเมนูด้านซ้ายขนาดเล็กมินิมอล (Slim Sidebar ล้อแบบ CMU Mango) */
+        .slim-sidebar {
+            width: 85px;
+            background-color: #0f766e; /* Teal เข้มโทนพยาบาลหรู */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            gap: 12px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        /* โลโก้ด้านบนสุดของแถบซ้าย */
+        .sidebar-logo {
+            width: 45px;
+            height: 45px;
+            background-color: #2dd4bf;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* ปุ่มเมนูไอคอนแนวตั้งสั้นๆ */
+        .sidebar-icon-btn {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ccfbf1;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 4px;
+            transition: all 0.2s;
+            gap: 4px;
+        }
+        .sidebar-icon-btn:hover {
+            background-color: #0d9488;
+            color: #ffffff;
+        }
+        .sidebar-icon-btn .icon {
+            font-size: 1.4rem;
+        }
+
+        /* 📍 2. ส่วนเนื้อหาหลักด้านขวา (ขยับห่างจาก Sidebar 85px เพื่อไม่ให้ทับกัน) */
+        .wrapper-content {
+            flex: 1;
+            margin-left: 85px; /* ดันเนื้อหาหลบแนวปฏิทิน Sidebar */
+            display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        
+
         /* Header Style */
         header {
             background-color: #0d9488;
             color: #ffffff;
-            padding: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
+            padding: 16px 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .header-container {
-            max-width: 1500px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
         }
-        .header-title h1 {
-            font-size: 1.25rem;
-            font-weight: bold;
-        }
-        .header-title p {
-            font-size: 0.75rem;
-            color: #ccfbf1;
-            margin-top: 2px;
-        }
-        .header-badge {
-            font-size: 0.875rem;
-            background-color: #0f766e;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-weight: 500;
-        }
+        .header-title h1 { font-size: 1.25rem; font-weight: bold; }
+        .header-title p { font-size: 0.75rem; color: #ccfbf1; margin-top: 2px; }
+        .header-badge { font-size: 0.825rem; background-color: #0f766e; padding: 4px 12px; border-radius: 9999px; font-weight: 500; }
 
-        /* 🏛️ โครงสร้างเลย์เอาต์หน้าเว็บบริหาร (Sidebar + Main Content) */
-        .layout-container {
-            display: flex;
-            flex: 1;
-            max-width: 1500px;
+        /* Main Dashboard Content */
+        main {
+            max-width: 1300px;
             width: 100%;
             margin: 0 auto;
-        }
-
-        /* ⬅️ แถบเมนูด้านซ้ายมือ (Sidebar) จัดให้ชิดซ้ายสุดและชัดเจน */
-        .sidebar {
-            width: 280px;
-            background-color: #ffffff;
-            border-right: 1px solid #e5e7eb;
-            padding: 24px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-self: stretch; /* ให้แถบยาวชิดขอบลงมาด้านล่าง */
-        }
-        @media (max-width: 768px) {
-            .layout-container { flex-direction: column; }
-            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; padding: 16px; }
-        }
-
-        /* ส่วนกล่องข้อมูลปุ่มเมนูซ้ายมือ */
-        .sidebar-box {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 14px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-        .sidebar-box-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #1f2937;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .sidebar-link-btn {
-            display: block;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-        .sidebar-link-btn:hover { opacity: 0.9; }
-
-        /* 📍 ส่วนเนื้อหาหลักด้านขวา (เพิ่ม Margin-Left เพื่อเว้นระยะห่างจากแถบซ้ายอย่างชัดเจน) */
-        .main-content {
-            flex: 1;
-            padding: 24px 24px 24px 40px; /* เพิ่มระยะห่างด้านซ้ายเป็น 40px เพื่อแยกแผง 9 ปุ่มออกจากแถบเมนูซ้าย */
+            padding: 32px 24px;
+            flex-grow: 1;
         }
         .page-title {
             margin-bottom: 24px;
             border-bottom: 1px solid #e5e7eb;
             padding-bottom: 16px;
         }
-        .page-title h2 {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #1f2937;
-        }
-        .page-title p {
-            font-size: 0.85rem;
-            color: #4b5563;
-            margin-top: 4px;
-        }
+        .page-title h2 { font-size: 1.5rem; font-weight: bold; color: #1f2937; }
+        .page-title p { font-size: 0.85rem; color: #4b5563; margin-top: 4px; }
 
-        /* Grid Layout 3 คอลัมน์สำหรับ 9 ปุ่ม */
+        /* Grid Layout 3 คอลัมน์กางเต็มแผงสบายตา */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 20px;
+            gap: 24px;
         }
-        @media (min-width: 992px) {
-            .grid-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-        @media (min-width: 1200px) {
-            .grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        }
+        @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 1100px) { .grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
         /* Card Layout */
         .card {
@@ -156,90 +141,65 @@
             justify-content: space-between;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .card-image-header {
-            height: 140px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .card-image-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 1;
-        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .card-image-header { height: 150px; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; }
+        .card-image-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1; }
         .card-emoji-icon { font-size: 2.5rem; position: relative; z-index: 2; }
-        .card-body { padding: 14px; flex-grow: 1; }
+        .card-body { padding: 16px; flex-grow: 1; }
         .card-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
-        .card-title { font-size: 1.05rem; font-weight: bold; color: #1f2937; margin-top: 2px; }
+        .card-title { font-size: 1.1rem; font-weight: bold; color: #1f2937; margin-top: 2px; }
         .card-desc { font-size: 0.85rem; color: #4b5563; margin-top: 6px; line-height: 1.4; }
-        .card-footer { padding: 12px 14px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
+        .card-footer { padding: 12px 16px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
         .card-link { font-size: 0.85rem; font-weight: 500; color: #0d9488; text-decoration: none; }
 
         /* Footer Style */
-        footer {
-            background-color: #1f2937;
-            color: #9ca3af;
-            text-align: center;
-            padding: 16px;
-            font-size: 0.85rem;
-            border-top: 1px solid #374151;
-            margin-top: auto;
-        }
+        footer { background-color: #1f2937; color: #9ca3af; text-align: center; padding: 16px; font-size: 0.85rem; border-top: 1px solid #374151; }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="header-title">
-                <h1>OPD Takhli Digital Hub 2027</h1>
-                <p>Designed & Developed by Khemika Pongsri</p>
-            </div>
-            <div class="header-badge">งานผู้ป่วยนอก โรงพยาบาลตาคลี</div>
-        </div>
-    </header>
-
-    <!-- 🏛️ โครงสร้างภาพรวมระบบยุทธศาสตร์และการจัดการ -->
-    <div class="layout-container">
+    <!-- ⬅️ 1. แถบเมนูข้างไซส์เล็ก Slim Sidebar (จัดชิตซ้ายและมี 3 ปุ่มยุทธศาสตร์ย่อยตามสั่งค๊าฟ) -->
+    <aside class="slim-sidebar">
+        <!-- โลโก้บนสุด -->
+        <div class="sidebar-logo">🏥</div>
         
-        <!-- ⬅️ แถบเมนูซ้ายมือ ชิดซ้ายสุดและแบ่งปุ่มสั้นชัดเจน -->
-        <aside class="sidebar">
-            
-            <!-- ปุ่มที่ 1: วิสัยทัศน์ พันธกิจ องค์กร -->
-            <div class="sidebar-box" style="background-color: #f0fdfa; border-color: #ccfbf1;">
-                <div class="sidebar-box-title" style="color: #0f766e;">🎯 วิสัยทัศน์ พันธกิจ องค์กร</div>
-                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #0d9488;">🔍 ตรวจสอบความสอดคล้อง</a>
+        <!-- ปุ่มที่ 1: วิสัยทัศน์ พันธกิจ องค์กร -->
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="วิสัยทัศน์ พันธกิจ องค์กร">
+            <span class="icon">🎯</span>
+            <span>วิสัยทัศน์</span>
+        </a>
+
+        <!-- ปุ่มที่ 2: Service Profile -->
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="Service Profile หน่วยงาน">
+            <span class="icon">📋</span>
+            <span>Profile</span>
+        </a>
+
+        <!-- ปุ่มที่ 3: QA หน่วยงาน -->
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="ระบบงาน QA หน่วยงาน">
+            <span class="icon">💎</span>
+            <span>ระบบ QA</span>
+        </a>
+    </aside>
+
+    <!-- 📍 2. โครงสร้างพื้นที่แสดงผลฝั่งขวาขยายกว้างเต็มตา -->
+    <div class="wrapper-content">
+        <!-- Header -->
+        <header>
+            <div class="header-container">
+                <div class="header-title">
+                    <h1>OPD Takhli Digital Hub 2027</h1>
+                    <p>Designed & Developed by Khemika Pongsri</p>
+                </div>
+                <div class="header-badge">งานผู้ป่วยนอก โรงพยาบาลตาคลี</div>
             </div>
+        </header>
 
-            <!-- ปุ่มที่ 2: Service Profile -->
-            <div class="sidebar-box" style="background-color: #f0fdf4; border-color: #bbf7d0;">
-                <div class="sidebar-box-title" style="color: #166534;">📋 Service Profile</div>
-                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #16a34a;">📂 เปิดดู Service Profile</a>
-            </div>
-
-            <!-- ปุ่มที่ 3: QA หน่วยงาน -->
-            <div class="sidebar-box" style="background-color: #f8fafc; border-color: #cbd5e1;">
-                <div class="sidebar-box-title" style="color: #334155;">💎 QA หน่วยงาน</div>
-                <a href="#" target="_blank" class="sidebar-link-btn" style="background-color: #475569;">✨ เปิดระบบงาน QA</a>
-            </div>
-
-        </aside>
-
-        <!-- 📍 ส่วนเนื้อหาหลักด้านขวา (9 ปุ่มบริหารจัดการตึก) -->
-        <main class="main-content">
+        <!-- Main Dashboard 9 ปุ่มเดิม -->
+        <main>
             <div class="page-title">
                 <h2>ศูนย์รวมข้อมูลและนวัตกรรมการนำระบบสุขภาพอัจฉริยะ</h2>
-                <p>ระบบบันทึก ตรวจเช็คเกณฑ์ชี้วัด และการจัดการทรัพยากรทางการพยาบาลภายในตึกผู้ป่วยนอก</p>
+                <p>คลิกลงบันทึก ตรวจเช็คเกณฑ์ชี้วัด และการจัดการทรัพยากรทางการพยาบาลภายในตึกผู้ป่วยนอก</p>
             </div>
 
             <div class="grid-container">
@@ -381,12 +341,12 @@
 
             </div>
         </main>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
+        </footer>
+    </div>
 
 </body>
 </html>
