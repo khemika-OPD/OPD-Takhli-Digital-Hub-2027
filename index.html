@@ -19,23 +19,24 @@
             min-height: 100vh;
         }
 
-        /* 🏛️ 1. แถบเมนูด้านซ้ายขนาดเล็กมินิมอล (Slim Sidebar ล้อแบบ CMU Mango) */
+        /* 🏛️ 1. แถบเมนูด้านซ้ายขนาดมินิมอล (Slim Sidebar อัปเดต 7 ปุ่มตามสั่ง) */
         .slim-sidebar {
-            width: 85px;
-            background-color: #0f766e; /* Teal เข้มโทนพยาบาลหรู */
+            width: 95px; /* ปรับขนาดให้พอดีกับปุ่มและข้อความ */
+            background-color: #0f766e; /* Teal เข้ม */
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 20px;
-            gap: 12px;
+            gap: 10px;
             position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             z-index: 100;
+            overflow-y: auto; /* เปิดให้สกรอลล์ขึ้นลงได้ถ้าจอเล็ก */
         }
 
-        /* โลโก้ด้านบนสุดของแถบซ้าย */
+        /* โลโก้ด้านบนสุด */
         .sidebar-logo {
             width: 45px;
             height: 45px;
@@ -44,14 +45,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* ปุ่มเมนูไอคอนแนวตั้งสั้นๆ */
+        /* ปุ่มเมนูไอคอนแนวตั้ง */
         .sidebar-icon-btn {
-            width: 70px;
+            width: 80px;
             height: 70px;
             display: flex;
             flex-direction: column;
@@ -72,13 +73,13 @@
             color: #ffffff;
         }
         .sidebar-icon-btn .icon {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
-        /* 📍 2. ส่วนเนื้อหาหลักด้านขวา (ขยับห่างจาก Sidebar 85px เพื่อไม่ให้ทับกัน) */
+        /* 📍 2. ส่วนเนื้อหาหลักด้านขวา (ขยับห่างจาก Sidebar 95px เพื่อไม่ให้ทับกัน) */
         .wrapper-content {
             flex: 1;
-            margin-left: 85px; /* ดันเนื้อหาหลบแนวปฏิทิน Sidebar */
+            margin-left: 95px; /* ดันเนื้อหาไปทางขวาหลบแนว Sidebar */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -120,7 +121,7 @@
         .page-title h2 { font-size: 1.5rem; font-weight: bold; color: #1f2937; }
         .page-title p { font-size: 0.85rem; color: #4b5563; margin-top: 4px; }
 
-        /* Grid Layout 3 คอลัมน์กางเต็มแผงสบายตา */
+        /* Grid Layout 3 คอลัมน์ */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -158,33 +159,46 @@
 </head>
 <body>
 
-    <!-- ⬅️ 1. แถบเมนูข้างไซส์เล็ก Slim Sidebar (จัดชิตซ้ายและมี 3 ปุ่มยุทธศาสตร์ย่อยตามสั่งค๊าฟ) -->
     <aside class="slim-sidebar">
-        <!-- โลโก้บนสุด -->
         <div class="sidebar-logo">🏥</div>
         
-        <!-- ปุ่มที่ 1: วิสัยทัศน์ พันธกิจ องค์กร -->
         <a href="#" target="_blank" class="sidebar-icon-btn" title="วิสัยทัศน์ พันธกิจ องค์กร">
             <span class="icon">🎯</span>
             <span>วิสัยทัศน์</span>
         </a>
 
-        <!-- ปุ่มที่ 2: Service Profile -->
         <a href="#" target="_blank" class="sidebar-icon-btn" title="Service Profile หน่วยงาน">
             <span class="icon">📋</span>
             <span>Profile</span>
         </a>
 
-        <!-- ปุ่มที่ 3: QA หน่วยงาน -->
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="JD - ลักษณะงานพยาบาล">
+            <span class="icon">👔</span>
+            <span>ปุ่ม JD</span>
+        </a>
+
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="JS - คุณสมบัติเฉพาะตำแหน่ง">
+            <span class="icon">📜</span>
+            <span>ปุ่ม JS</span>
+        </a>
+
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="Competency - ระบบประเมินสมรรถนะ">
+            <span class="icon">📊</span>
+            <span>Competency</span>
+        </a>
+
+        <a href="#" target="_blank" class="sidebar-icon-btn" title="ประเมินจริยธรรมและจรรยาบรรณวิชาชีพ">
+            <span class="icon">⚖️</span>
+            <span>จริยธรรม</span>
+        </a>
+
         <a href="#" target="_blank" class="sidebar-icon-btn" title="ระบบงาน QA หน่วยงาน">
             <span class="icon">💎</span>
             <span>ระบบ QA</span>
         </a>
     </aside>
 
-    <!-- 📍 2. โครงสร้างพื้นที่แสดงผลฝั่งขวาขยายกว้างเต็มตา -->
     <div class="wrapper-content">
-        <!-- Header -->
         <header>
             <div class="header-container">
                 <div class="header-title">
@@ -195,7 +209,6 @@
             </div>
         </header>
 
-        <!-- Main Dashboard 9 ปุ่มเดิม -->
         <main>
             <div class="page-title">
                 <h2>ศูนย์รวมข้อมูลและนวัตกรรมการนำระบบสุขภาพอัจฉริยะ</h2>
@@ -204,7 +217,6 @@
 
             <div class="grid-container">
                 
-                <!-- ปุ่มที่ 1: ตัวชี้วัด -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=500&q=80');">
@@ -219,7 +231,6 @@
                     <div class="card-footer"><a href="indicators.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 2: ข้อมูลบุคลากร/ประชุมอบรม -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80');">
@@ -234,7 +245,6 @@
                     <div class="card-footer"><a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 3: ข้อมูลวิชาการ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=500&q=80');">
@@ -249,7 +259,6 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 4: ความพึงพอใจ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=500&q=80');">
@@ -264,7 +273,6 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 5: ระบบรายงานความเสี่ยงและข้อร้องเรียน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=500&q=80');">
@@ -279,7 +287,6 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 6: สถิติรายงานของหน่วยงาน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80');">
@@ -294,7 +301,6 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 7: ตารางเวรและระบบจองวันลา -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=80');">
@@ -309,7 +315,6 @@
                     <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 8: บันทึกเวลาปฏิบัติงาน -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=500&q=80');">
@@ -321,10 +326,9 @@
                             <p class="card-desc">ระบบลงเวลาเข้า-ออกปฏิบัติงานจริง และตรวจสอบสรุปชั่วโมงการทำงานรายบุคคล</p>
                         </div>
                     </div>
-                    <div class="card-footer"><a href="#" class="card-link">เข้าสู่ระบบ ➔</a></div>
+                    <div class="card-footer"><a href="time_attendance.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
                 </div>
 
-                <!-- ปุ่มที่ 9: WI และระเบียบปฏิบัติ -->
                 <div class="card">
                     <div>
                         <div class="card-image-header" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
@@ -342,7 +346,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer>
             <p>© 2026 งานผู้ป่วยนอก โรงพยาบาลตาคลี | พัฒนาโดย Khemika-OPD Takhli (Khemika Pongsri)</p>
         </footer>
