@@ -17,43 +17,44 @@
             color: #1f2937;
             display: flex;
             min-height: 100vh;
+            font-size: 0.96rem;
         }
 
-        /* 🏛️ 1. แถบเมนูด้านซ้ายขนาดมินิมอล (Slim Sidebar อัปเดต 7 ปุ่มตามสั่ง) */
+        /* 🏛️ 1. แถบเมนูด้านซ้ายขนาดมินิมอล (Slim Sidebar สไตล์ Mango) */
         .slim-sidebar {
-            width: 95px; /* ปรับขนาดให้พอดีกับปุ่มและข้อความ */
+            width: 98px;
             background-color: #0f766e; /* Teal เข้ม */
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 20px;
+            padding-top: 18px;
             gap: 10px;
             position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             z-index: 100;
-            overflow-y: auto; /* เปิดให้สกรอลล์ขึ้นลงได้ถ้าจอเล็ก */
+            overflow-y: auto;
         }
 
         /* โลโก้ด้านบนสุด */
         .sidebar-logo {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background-color: #2dd4bf;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         /* ปุ่มเมนูไอคอนแนวตั้ง */
         .sidebar-icon-btn {
-            width: 80px;
-            height: 70px;
+            width: 88px;
+            height: 72px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -61,7 +62,7 @@
             color: #ccfbf1;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             font-weight: bold;
             text-align: center;
             padding: 4px;
@@ -73,13 +74,13 @@
             color: #ffffff;
         }
         .sidebar-icon-btn .icon {
-            font-size: 1.3rem;
+            font-size: 1.45rem;
         }
 
-        /* 📍 2. ส่วนเนื้อหาหลักด้านขวา (ขยับห่างจาก Sidebar 95px เพื่อไม่ให้ทับกัน) */
+        /* 📍 2. ส่วนเนื้อหาหลักด้านขวา (ขยับระยะหลบ Sidebar 98px) */
         .wrapper-content {
             flex: 1;
-            margin-left: 95px; /* ดันเนื้อหาไปทางขวาหลบแนว Sidebar */
+            margin-left: 98px;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -89,11 +90,11 @@
         header {
             background-color: #0d9488;
             color: #ffffff;
-            padding: 16px 24px;
+            padding: 15px 24px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .header-container {
-            max-width: 1300px;
+            max-width: 1210px; /* 🌟 ปรับลดความกว้างส่วนหัวลง 2% ให้รับกับบอร์ดล่าง */
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -101,34 +102,55 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        .header-title h1 { font-size: 1.25rem; font-weight: bold; }
-        .header-title p { font-size: 0.75rem; color: #ccfbf1; margin-top: 2px; }
-        .header-badge { font-size: 0.825rem; background-color: #0f766e; padding: 4px 12px; border-radius: 9999px; font-weight: 500; }
+        .header-title h1 { 
+            font-size: 1.28rem; 
+            font-weight: bold; 
+        }
+        .header-title p { 
+            font-size: 0.78rem; 
+            color: #ccfbf1; 
+            margin-top: 3px; 
+        }
+        .header-badge { 
+            font-size: 0.85rem; 
+            background-color: #0f766e; 
+            padding: 4px 12px; 
+            border-radius: 9999px; 
+            font-weight: 500; 
+        }
 
         /* Main Dashboard Content */
         main {
-            max-width: 1300px;
+            max-width: 1210px; /* 🌟 ปรับลดความกว้างรวมของกรอบลง 2% จากเดิม 1235px */
             width: 100%;
             margin: 0 auto;
-            padding: 32px 24px;
+            padding: 30px 24px;
             flex-grow: 1;
         }
         .page-title {
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 16px;
+            padding-bottom: 14px;
         }
-        .page-title h2 { font-size: 1.5rem; font-weight: bold; color: #1f2937; }
-        .page-title p { font-size: 0.85rem; color: #4b5563; margin-top: 4px; }
+        .page-title h2 { 
+            font-size: 1.52rem; 
+            font-weight: bold; 
+            color: #1f2937; 
+        }
+        .page-title p { 
+            font-size: 0.88rem; 
+            color: #4b5563; 
+            margin-top: 4px; 
+        }
 
         /* Grid Layout 3 คอลัมน์ */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(1, minmax(0, 1fr));
-            gap: 24px;
+            gap: 22px;
         }
         @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-        @media (min-width: 1100px) { .grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (min-width: 1200px) { .grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
         /* Card Layout */
         .card {
@@ -143,18 +165,46 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .card-image-header { height: 150px; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; }
+        .card-image-header { height: 124px; /* 🌟 ปรับลดความสูงของรูปภาพบนหัวกรอบลงอีก 5% จากเดิม 130px */ background-size: cover; background-position: center; position: relative; display: flex; align-items: center; justify-content: center; }
         .card-image-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.4); z-index: 1; }
-        .card-emoji-icon { font-size: 2.5rem; position: relative; z-index: 2; }
-        .card-body { padding: 16px; flex-grow: 1; }
-        .card-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
-        .card-title { font-size: 1.1rem; font-weight: bold; color: #1f2937; margin-top: 2px; }
-        .card-desc { font-size: 0.85rem; color: #4b5563; margin-top: 6px; line-height: 1.4; }
-        .card-footer { padding: 12px 16px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
-        .card-link { font-size: 0.85rem; font-weight: 500; color: #0d9488; text-decoration: none; }
+        .card-emoji-icon { font-size: 2.1rem; position: relative; z-index: 2; }
+        
+        .card-body { padding: 13px; flex-grow: 1; }
+        .card-tag { 
+            font-size: 0.7rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+        }
+        .card-title { 
+            font-size: 1.05rem; 
+            font-weight: bold; 
+            color: #1f2937; 
+            margin-top: 4px; 
+        }
+        .card-desc { 
+            font-size: 0.84rem; 
+            color: #4b5563; 
+            margin-top: 6px; 
+            line-height: 1.4; 
+        }
+        
+        .card-footer { padding: 10px 14px; background-color: #f9fafb; border-top: 1px solid #f3f4f6; display: flex; justify-content: flex-end; }
+        .card-link { 
+            font-size: 0.83rem; 
+            font-weight: bold; 
+            color: #0d9488; 
+            text-decoration: none; 
+        }
 
         /* Footer Style */
-        footer { background-color: #1f2937; color: #9ca3af; text-align: center; padding: 16px; font-size: 0.85rem; border-top: 1px solid #374151; }
+        footer { 
+            background-color: #1f2937; 
+            color: #9ca3af; 
+            text-align: center; 
+            padding: 15px; 
+            font-size: 0.88rem; 
+            border-top: 1px solid #374151; 
+        }
     </style>
 </head>
 <body>
@@ -184,7 +234,7 @@
 
         <a href="#" target="_blank" class="sidebar-icon-btn" title="Competency - ระบบประเมินสมรรถนะ">
             <span class="icon">📊</span>
-            <span>Competency</span>
+            <span>สมรรถนะ</span>
         </a>
 
         <a href="#" target="_blank" class="sidebar-icon-btn" title="ประเมินจริยธรรมและจรรยาบรรณวิชาชีพ">
@@ -239,7 +289,7 @@
                         <div class="card-body">
                             <span class="card-tag" style="color: #7c3aed;">HR & Education</span>
                             <div class="card-title">2. ข้อมูลบุคลากร/ประชุมอบรม</div>
-                            <p class="card-desc">ระบบบันทึกประวัติส่วนบุคคล เลขที่ใบอนุญาตประกอบวิชาชีพ (คุ้มครองข้อมูลส่วนบุคคล PDPA) และสถิติจำนวนชั่วโมงการอบรมฟื้นฟูทักษะประจำปี</p>
+                            <p class="card-desc">ระบบบันทึกประวัติพยาบาลวิชาชีพ เลขที่ใบอนุญาตประกอบวิชาชีพ (คุ้มครองข้อมูลส่วนบุคคล PDPA) และสถิติจำนวนชั่วโมงการอบรมฟื้นฟูทักษะประจำปี</p>
                         </div>
                     </div>
                     <div class="card-footer"><a href="hr_training.html" class="card-link">เข้าสู่ระบบ ➔</a></div>
